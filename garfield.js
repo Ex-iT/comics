@@ -3,7 +3,7 @@ const https = require('https');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-const url = 'https://www.volkskrant.nl/columns-opinie/gummbah~bb64201f/';
+const url = 'https://garfield.com/comic';
 
 const get = https.get(url, response => {
 	let data = '';
@@ -14,7 +14,8 @@ const get = https.get(url, response => {
 
 	response.on('end', () => {
 		const dom = new JSDOM(data);
-		const src = dom.window.document.querySelector('figure.artstyle__figure > img.artstyle__image').src;
+		const src = dom.window.document.querySelector('.comic-display img.img-responsive').src;
+
 		console.log(src);
 	})
 });
