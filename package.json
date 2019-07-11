@@ -20,6 +20,7 @@
     "jsdom": "^15.1.1"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.5.4",
     "nuxt": "^2.8.1"
   }
 }

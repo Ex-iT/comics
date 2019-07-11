@@ -1,4 +1,12 @@
 export default {
+	build: {
+		extend (config, { isClient }) {
+			// Extend only webpack config for client-bundle
+			if (isClient) {
+				config.devtool = '#source-map'
+			}
+		}
+	},
 	head: {
 		titleTemplate: '%s | Comics',
 		meta: [
@@ -18,5 +26,14 @@ export default {
 	},
 	css: [
 		'@/static/index.css'
+	],
+	modules: [
+		'@nuxtjs/axios',
+	],
+	axios: {
+		// proxyHeaders: false
+	},
+	plugins: [
+		'~/plugins/axios'
 	]
 }

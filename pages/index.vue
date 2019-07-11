@@ -1,7 +1,8 @@
 <template>
 	<div>
-		<h1>{{ label }}</h1>
+		<h1>{{ label }} - {{ ip }}</h1>
 		<button type="button" v-on:click="updateTitle">Update title</button>
+		<button type="button" v-on:click="getIp">Get IP</button>
 	</div>
 </template>
 
@@ -11,7 +12,8 @@ export default {
 	data() {
 		return {
 			label: 'Comics',
-			titleSuffix: ' | Comics'
+			titleSuffix: ' | Comics',
+			ip: 'Waiting...'
 		};
 	},
 	head() {
@@ -19,10 +21,18 @@ export default {
 			title: 'Dagelijkse dosis comics'
 		}
 	},
+	// async asyncData({ $axios }) {
+	// 	const ip = await $axios.$get('https://icanhazip.com')
+	// 	return { ip }
+	// },
 	methods: {
 		updateTitle: function() {
 			document.title = 'Boom!' + this.titleSuffix;
 
+		},
+		async getIp() {
+			const ip = await this.$axios.$get('https://icanhazip.com');
+			this.ip = ip;
 		}
 	}
 }
