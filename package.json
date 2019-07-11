@@ -4,7 +4,11 @@
   "description": "Daily selection of comics",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nuxt start",
+    "build": "nuxt build",
+    "analyze": "nuxt build --analyze",
+    "generate": "nuxt generate",
+    "dev": "nuxt"
   },
   "repository": {
     "type": "git",
@@ -14,5 +18,8 @@
   "license": "ISC",
   "devDependencies": {
     "jsdom": "^15.1.1"
+  },
+  "dependencies": {
+    "nuxt": "^2.8.1"
   }
 }
